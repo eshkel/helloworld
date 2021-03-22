@@ -1,12 +1,20 @@
 <project default="env">
-	<property environment="env"/>
 
-	<target name="env">
+	<property environment="env" />
+
+	<target name="env" >
 		<echoproperties/>
 	</target>
 
+	<target name="clean" >
+		<delete dir="output"/>
+	</target>
+
+	<target name="fail" >
+		<fail/>
+	</target>
+
 	<target name="jenkins-env" depends="env">
-		<echoproperties/>
 		<echo message="NODE_NAME = ${env.NODE_NAME}"/>
 		<echo message="JOB_NAME = ${env.JOB_NAME}"/>
 		<echo message="WORKSPACE = ${env.WORKSPACE}"/>
@@ -15,6 +23,13 @@
 		<echo message="HUDSON_TOOLS = ${env.HUDSON_TOOLS}"/>
 		<echo message="TEMP = ${env.TEMP}"/>
 		<echo message="TOOLS_HOME = ${env.TOOLS_HOME}"/>
+	</target>
+
+	<target name="generate-time-stamp-file">
+		<tstamp>
+			<format property="time.stamp" pattern="yyyy-MM-dd_HH:mm:ss"/>
+		</tstamp>
+		<echo file="output/time-stamp.txt" append="false">${time.stamp}${line.separator}</echo>
 	</target>
 
 </project>
