@@ -1,6 +1,20 @@
 <project default="env">
+	<property environment="env"/>
+
 	<target name="env">
 		<echoproperties/>
+	</target>
+
+	<target name="jenkins-env" depends="env">
+		<echoproperties/>
+		<echo message="NODE_NAME = ${env.NODE_NAME}"/>
+		<echo message="JOB_NAME = ${env.JOB_NAME}"/>
+		<echo message="WORKSPACE = ${env.WORKSPACE}"/>
+		<echo message="MY_TOOL = ${env.MY_TOOL}"/>
+		<echo message="GROOVY_HOME = ${env.GROOVY_HOME}"/>
+		<echo message="HUDSON_TOOLS = ${env.HUDSON_TOOLS}"/>
+		<echo message="TEMP = ${env.TEMP}"/>
+		<echo message="TOOLS_HOME = ${env.TOOLS_HOME}"/>
 	</target>
 
 </project>
