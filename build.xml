@@ -1,0 +1,6 @@
+<project default="env">
+	<target name="env">
+		<echoproperties/>
+	</target>
+
+</project>
