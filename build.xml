@@ -1,4 +1,5 @@
-<project default="env">
+<?xml version = "1.0"?>
+<project name="helloworld" default="env">
 
 	<property environment="env" />
 
@@ -30,6 +31,17 @@
 			<format property="time.stamp" pattern="yyyy-MM-dd_HH:mm:ss"/>
 		</tstamp>
 		<echo file="output/time-stamp.txt" append="false">${time.stamp}${line.separator}</echo>
+	</target>
+
+	<target name="generate-time-stamp-files-tree">
+		<tstamp>
+			<format property="time.stamp" pattern="yyyy-MM-dd_HH:mm:ss"/>
+		</tstamp>
+		<echo file="output/time-stamp.txt" append="false">${time.stamp}${line.separator}</echo>
+		<echo file="output/folder1/time-stamp_1.txt" append="false">${time.stamp}${line.separator}</echo>
+		<echo file="output/folder2/time-stamp_2.txt" append="false">${time.stamp}${line.separator}</echo>
+		<echo file="output/folder2/folder_21/time-stamp_21.txt" append="false">${time.stamp}${line.separator}</echo>
+		<echo file="output/folder3/time-stamp.txt" append="false">${time.stamp}${line.separator}</echo>
 	</target>
 
 </project>
